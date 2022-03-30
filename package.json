@@ -4,8 +4,13 @@
   "description": "This is backend of flipkart-clone-project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/index-server.js"
+    "client-install": "npm install --prefix client",
+    "start": "node index-server.js",
+    "server": "nodemon index-server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
+
   "keywords": [
     "ecommerce",
     "mern",
