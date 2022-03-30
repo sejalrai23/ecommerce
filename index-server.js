@@ -28,8 +28,6 @@ mongoose.connect(
 app.use(cors());
 app.use(express.json());
 app.use('/public', express.static(path.join(__dirname, 'uploads')));
-
-
 app.use('/', userRoutes);
 app.use('/', adminRoutes);
 app.use('/', categoryRoutes);
@@ -37,6 +35,15 @@ app.use('/', productRoutes);
 app.use('/', cartRoutes);
 app.use('/', initialData);
 app.use('/', pageRoutes);
+
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "client/build")));
+    app.get("*", (req, res) => {
+        res.sendfile(path.join((__dirname = "client/build/index.html")));
+    });
+}
+
 app.listen(process.env.PORT, () => {
     console.log(`server is running on port ${process.env.PORT}`);
 });
