@@ -28,13 +28,13 @@ mongoose.connect(
 app.use(cors());
 app.use(express.json());
 app.use('/public', express.static(path.join(__dirname, 'uploads')));
-app.use('/', userRoutes);
-app.use('/', adminRoutes);
-app.use('/', categoryRoutes);
-app.use('/', productRoutes);
-app.use('/', cartRoutes);
-app.use('/', initialData);
-app.use('/', pageRoutes);
+app.use( userRoutes);
+app.use( adminRoutes);
+app.use(categoryRoutes);
+app.use(productRoutes);
+app.use(cartRoutes);
+app.use(initialData);
+app.use(pageRoutes);
 
 
 if (process.env.NODE_ENV === "production") {

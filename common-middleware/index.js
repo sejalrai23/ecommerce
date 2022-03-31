@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const multer = require("multer");
-const shortid = require("Shortid");
+const shortid = require("shortid");
 const path = require("path");
 
 const storage = multer.diskStorage({
