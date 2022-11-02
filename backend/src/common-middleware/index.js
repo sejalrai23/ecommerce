@@ -13,32 +13,9 @@ const storage = multer.diskStorage({
         cb(null, shortid.generate() + "-" + file.originalname);
     }
 });
-const s3=new aws.S3({
-    accessKeyId:'AKIAZZMZPJAYJGUHNVCQ',
-    secretAccessKey:'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'
 
-});
 
-// const s3=new aws.S3({
-//     accessKeyId:'AKIAZZMZPJAYAPN77RZO',
-//     secretAccessKey:'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'
 
-// });
-exports.upload = multer({ storage });
-
-exports.uploadS3 = multer({
-    storage: multerS3({
-      s3: s3,
-      bucket: 'ecom-clone-img',
-    //   acl:'public-read',
-      metadata: function (req, file, cb) {
-        cb(null, {fieldName: file.fieldname});
-      },
-      key: function (req, file, cb) {
-        cb(null, shortid.generate() + "-" + file.originalname)
-      }
-    })
-  })
 
 
 
