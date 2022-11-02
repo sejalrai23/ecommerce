@@ -4,11 +4,6 @@ const shortid = require("shortid");
 const Category = require("../models/category");
 const aws=require("aws-sdk");
 
-const s3=new aws.S3({
-    accessKeyId:'AKIAZZMZPJAYJGUHNVCQ',
-    secretAccessKey:'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'
-
-});
 
 
 exports.createProducts = (req, res) => {
